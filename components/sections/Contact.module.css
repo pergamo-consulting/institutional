@@ -42,7 +42,7 @@
 .details dt {
   flex: none;
   min-width: 84px;
-  font: 400 11px/1.6 var(--mono);
+  font: 400 11px/1.6 var(--sans);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--olive-deep);

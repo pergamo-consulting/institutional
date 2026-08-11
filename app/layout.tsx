@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-// Auto-hospedadas pelo Next: sem request a fonts.googleapis.com e sem CLS.
+// Família única do site — inclusive nos rótulos e números.
+// Auto-hospedada pelo Next: sem request a fonts.googleapis.com e sem CLS.
 const grotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -10,16 +11,9 @@ const grotesk = Space_Grotesk({
   display: "swap",
 });
 
-const mono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
-const title = "Pergamo Consulting — Sistemas sob medida para operações que não podem parar";
+const title = "Pergamo Consulting — Software feito por quem entendeu a sua operação primeiro";
 const description =
-  "Consultoria e software house. Entendemos a sua operação antes da primeira linha de código — e ficamos até o sistema rodar sozinho, em produção.";
+  "Consultoria e software house. Diagnóstico, arquitetura, código e sustentação — o mesmo time do primeiro dia ao plantão.";
 
 export const metadata: Metadata = {
   title,
@@ -41,7 +35,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${grotesk.variable} ${mono.variable}`}>
+    <html lang="pt-BR" className={grotesk.variable}>
       <body>{children}</body>
     </html>
   );
