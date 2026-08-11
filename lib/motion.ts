@@ -165,6 +165,12 @@ export function isFreshLoad(budgetMs = 1500) {
  * muda — sem isso as linhas quebram no lugar errado. Devolve um `revert` que
  * restaura o texto original (importante para leitores de tela).
  *
+ * A máscara do SplitText tem a altura exata da caixa de linha. Nossas headlines
+ * usam `line-height: 1`, que é menor que o desenho da fonte, então a máscara
+ * corta descendentes e acentos (o "g" de "Traga", o "ç" de "operação"). Ela só
+ * precisa existir enquanto a linha sobe: no fim do tween devolvemos
+ * `overflow: visible` e o texto volta inteiro.
+ *
  * Se o plugin falhar por qualquer motivo, cai num fade simples: o título nunca
  * fica preso invisível.
  */
@@ -184,15 +190,24 @@ export function revealHeadline(
       type: "lines",
       mask: "lines",
       autoSplit: true,
-      onSplit: (self) =>
-        gsap.from(self.lines, {
+      onSplit: (self) => {
+        const unmask = () =>
+          self.masks.forEach((mask) => {
+            (mask as HTMLElement).style.overflow = "visible";
+          });
+        return gsap.from(self.lines, {
           yPercent: 110,
           duration: DUR.slow,
           ease: EASE.out,
           stagger: STAGGER.base,
           delay,
           scrollTrigger,
-        }),
+          onComplete: unmask,
+          // Se o tween for morto no meio (re-split por resize, revert da seção),
+          // a máscara não pode ficar para trás cortando o texto.
+          onInterrupt: unmask,
+        });
+      },
     });
     return () => split.revert();
   } catch {

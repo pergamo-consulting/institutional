@@ -3,6 +3,10 @@
 Next.js (App Router) + GSAP. Implementação da home a partir do wireframe
 **`Pergamo - Wireframes Desktop.dc.html`** (opção `3a`, canvas desktop 1280) do
 projeto Claude Design [`96537300`](https://claude.ai/design/p/96537300-a4b8-4e76-a32a-f358baa5cf66).
+O texto em produção é a copy da variante `4a`.
+
+Tipografia: **Space Grotesk** em tudo — inclusive rótulos, contadores e números.
+Não há segunda família; `--sans` é o único token de fonte.
 
 ## Rodar
 
@@ -67,7 +71,7 @@ secundária, e o paralaxe discreto nos blocos de foto é a ambiente.
 Toda animação passa por `useMotion()`, que embrulha `useGSAP` e garante duas
 coisas: escopo por seção (seletores não vazam) e revert automático no unmount.
 
-### Três decisões que não são óbvias
+### Quatro decisões que não são óbvias
 
 **Nada nasce invisível no CSS.** O estado inicial é aplicado pelo GSAP, nunca
 por `opacity: 0` na folha de estilo. Assim quem está sem JavaScript — e qualquer
@@ -79,6 +83,13 @@ página em branco.
 usuário já viu o hero e escondê-lo para reanimar pareceria defeito. Acima de
 1,5s a página simplesmente aparece pronta. Animação de scroll não tem essa
 trava — ela responde a um gesto, nunca compete com o primeiro paint.
+
+**A máscara da headline é desfeita no fim do tween.** O `SplitText` embrulha
+cada linha numa máscara com `overflow: clip` da altura exata da caixa de linha.
+Como os títulos usam `line-height: 1` — menor que o desenho da fonte —, a
+máscara cortava descendentes e acentos (`g`, `p`, `ç`) e continuava cortando
+depois que a animação acabava. Ela só serve enquanto a linha sobe, então
+`onComplete`/`onInterrupt` devolvem `overflow: visible`.
 
 **`transform` ficou fora da `transition` do `.btn`.** GSAP anima transform
 inline; transição CSS na mesma propriedade briga com ele e prende o elemento no
@@ -103,6 +114,8 @@ O wireframe é estrutural, então isto ainda é marcador:
   `<img>` real: a camada já é o alvo do paralaxe e tem folga de 8% em cima e
   embaixo para o deslocamento não descobrir borda.
 - **Logos de clientes** — os retângulos em `hero.trustMarks` (`lib/content.ts`).
+- **Métricas dos casos** — `−38%`, `9 → 1` e `11 dias → 4h` são exemplos;
+  trocar pelos números reais.
 - **Depoimento** — nome, cargo e empresa reais.
 - **Casos** — os links "Ver o caso" apontam para `#contato`; trocar quando
   existirem as páginas internas.
