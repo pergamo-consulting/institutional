@@ -28,6 +28,10 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          # Inlinado no bundle durante o build (prefixo NEXT_PUBLIC_).
+          # Definido em Settings > Secrets and variables > Actions > Variables.
+          NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.NEXT_PUBLIC_CONTACT_ENDPOINT }}
 
       - uses: actions/configure-pages@v5
 
