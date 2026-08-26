@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import ClubberMark from "@/components/brand/ClubberMark";
 import { hero } from "@/lib/content";
 import { DUR, EASE, STAGGER, gsap, isFreshLoad, revealHeadline, useMotion } from "@/lib/motion";
 import styles from "./Hero.module.css";
@@ -70,10 +71,10 @@ export default function Hero() {
 
           <div className={`${styles.trust} js-hero-trust`}>
             <span className={styles.trustLabel}>{hero.trustLabel}</span>
-            <div className={styles.trustMarks} role="img" aria-label="Logotipos de clientes">
-              {hero.trustMarks.map((width, i) => (
-                <span key={i} style={{ width }} />
-              ))}
+            <div className={styles.trustMarks}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/haizer.png" alt="Haizer" width={480} height={120} />
+              <ClubberMark />
             </div>
           </div>
         </div>

@@ -1,0 +1,44 @@
+.title {
+  margin-block: 44px 46px;
+  max-width: 18ch;
+  font: 700 clamp(30px, 3.6vw, 46px) / 1.06 var(--sans);
+  letter-spacing: -0.03em;
+  text-wrap: pretty;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 56px;
+  border-top: 2px solid var(--line-strong);
+}
+.item {
+  padding: 28px 0 30px;
+  border-bottom: 1px solid var(--line);
+}
+/* Última linha da grade não fecha com régua: o rodapé da seção já fecha. */
+.grid > .item:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+.q {
+  margin-bottom: 12px;
+  max-width: 30ch;
+  font: 600 clamp(17px, 1.5vw, 19px) / 1.3 var(--sans);
+  text-wrap: pretty;
+}
+.a {
+  max-width: 46ch;
+  font: 400 13.5px/1.6 var(--sans);
+  color: var(--text-soft);
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .grid > .item:nth-last-child(2) {
+    border-bottom: 1px solid var(--line);
+  }
+  .grid > .item:last-child {
+    border-bottom: 0;
+  }
+}
