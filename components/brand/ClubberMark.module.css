@@ -1,0 +1,34 @@
+/*
+ * Lockup do Clubber, fiel ao sticker-wordmark da identidade deles.
+ * Todas as medidas em em: a `font-size` do .pill controla o tamanho final.
+ * Proporção original (52px de tipo): pílula com 2.115em de altura.
+ */
+.pill {
+  display: inline-flex;
+  align-items: flex-end;
+  padding: 0.4615em 0.8462em;
+  border-radius: 999px;
+  background: #ffffff;
+  transform: rotate(-4deg);
+  font-family: var(--font-sora), var(--sans);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: #0b0b0d;
+}
+.disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1923em;
+  height: 1.1923em;
+  margin: 0 -0.0385em -0.0769em 0;
+  border-radius: 50%;
+  background: #0b0b0d;
+  transform: rotate(-8deg);
+}
+.disc svg {
+  width: 0.7692em;
+  height: 0.7692em;
+}

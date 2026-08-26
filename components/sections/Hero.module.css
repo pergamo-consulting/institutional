@@ -47,12 +47,13 @@
 .trustMarks {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  align-items: center;
+  gap: 26px;
 }
-/* Slots de logo de cliente — trocar por marcas reais. */
-.trustMarks span {
-  height: 26px;
-  background: var(--ink-panel);
+/* Logo de cliente: a altura manda, a largura acompanha a proporção. */
+.trustMarks img {
+  width: auto;
+  height: 22px;
 }
 
 /* Trilho lateral: o índice numerado de serviços. */

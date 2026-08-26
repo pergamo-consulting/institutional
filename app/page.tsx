@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import About from "@/components/sections/About";
 import Cases from "@/components/sections/Cases";
 import Contact from "@/components/sections/Contact";
+import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import Process from "@/components/sections/Process";
 import Services from "@/components/sections/Services";
@@ -35,6 +36,7 @@ export default function Home() {
 
         <div className="band-paper">
           <About />
+          <Faq />
         </div>
 
         <Contact />

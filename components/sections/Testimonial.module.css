@@ -8,8 +8,10 @@
   align-items: end;
 }
 .quote {
-  max-width: 26ch;
-  font: 700 clamp(22px, 3vw, 38px) / 1.25 var(--sans);
+  /* Medida mais larga que o padrão editorial: a citação é longa e, em 26ch,
+     virava uma coluna de nove linhas com meia tela vazia ao lado. */
+  max-width: 33ch;
+  font: 700 clamp(21px, 2.6vw, 33px) / 1.28 var(--sans);
   letter-spacing: -0.024em;
   color: var(--paper);
   text-wrap: pretty;
@@ -20,13 +22,6 @@
 }
 .caption {
   color: var(--slate);
-}
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 16px;
-  background: var(--ink-panel);
 }
 .name {
   display: block;

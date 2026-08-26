@@ -252,6 +252,20 @@ a {
   will-change: transform;
 }
 
+/*
+ * Foto real no lugar da camada listrada. Mesma sobra de 8% para o paralaxe,
+ * e P&B para não brigar com o lime, que é a única cor do site.
+ */
+.photo-img {
+  position: absolute;
+  inset: -8% 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.04);
+  will-change: transform;
+}
+
 /* O rótulo fica acima da camada e parado: texto não sofre paralaxe. */
 .photo > span:not(.photo-layer) {
   position: relative;

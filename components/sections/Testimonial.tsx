@@ -30,8 +30,6 @@ export default function Testimonial() {
           </blockquote>
         </div>
         <figcaption className={styles.caption}>
-          {/* Substituir pelo retrato da pessoa. */}
-          <span className={styles.avatar} aria-hidden="true" />
           <span className={styles.name}>{testimonial.name}</span>
           <span className={styles.role}>
             {testimonial.role}

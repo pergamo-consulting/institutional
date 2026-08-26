@@ -21,7 +21,7 @@ export default function WhereWeFit() {
     <section className="shell section" id="onde-entramos" aria-labelledby="fit-titulo" ref={root}>
       <div className="section-head">
         <p className="eyebrow">Onde entramos</p>
-        <span className="section-head-count">01 / 06</span>
+        <span className="section-head-count">01 / 07</span>
       </div>
 
       <div className={styles.intro}>
