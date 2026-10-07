@@ -36,7 +36,7 @@ export default function About() {
           <img
             className="photo-img"
             src="/time.jpg"
-            alt="As quatro pessoas do time da Pergamo, de camiseta preta, em frente a um prédio industrial tomado por trepadeira"
+            alt="O time da Pergamo, quatro pessoas de camiseta preta, no escritório, diante do quadro onde desenham a arquitetura dos sistemas"
             loading="lazy"
           />
         </div>
