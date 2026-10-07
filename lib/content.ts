@@ -135,6 +135,14 @@ export const products = {
         count: 2,
         singular: 'cliente já na lista',
         plural: 'clientes já na lista',
+        form: {
+          title: 'Lista de espera do Velo',
+          lead: 'Sem data de lançamento ainda. Quando tiver, você fica sabendo antes de ir para a rua.',
+          submit: 'Entrar na lista',
+          fineprint: 'Usamos só para falar do Velo. Sem newsletter, sem repasse para ninguém.',
+          contextLabel: 'O que você espera resolver com um ERP?',
+          done: 'Pronto, você está na lista. A gente avisa antes do lançamento.',
+        },
       },
     },
   ],
@@ -202,8 +210,8 @@ export const about = {
   title: 'Somos quatro. Nenhum de nós é só de reunião.',
   paragraphs: [
     'Quatro engenheiros, dezessete anos de estrada somados. Não existe camada de gerente entre você e quem escreve o código, e o time não muda depois da assinatura, mesmo quando isso custa margem.',
-    'O André veio da engenharia civil, e isso ficou no jeito da casa: a gente lê a operação antes de propor sistema, do mesmo jeito que se lê a obra antes do projeto. Falamos o problema, não o que dá venda.',
-    'Nosso critério de sucesso é ruim de vender: no fim do projeto, você decide melhor sozinho do que quando a gente chegou.',
+    'O Vitor e o Bonato vêm da engenharia de software, o Gabriel da engenharia da computação e o André da civil. A mistura ficou no jeito da casa: ler a operação antes de propor sistema, do mesmo jeito que se lê a obra antes do projeto.',
+    'Falamos o problema, não o que dá venda. E nosso critério de sucesso é ruim de vender: no fim do projeto, você decide melhor sozinho do que quando a gente chegou.',
   ],
   stats: [
     {

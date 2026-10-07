@@ -1,13 +1,21 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { products } from "@/lib/content";
 import { STAGGER, revealHeadline, revealOnScroll, useMotion } from "@/lib/motion";
 import styles from "./Products.module.css";
+import WaitlistDialog from "./WaitlistDialog";
 
 export default function Products() {
   const root = useRef<HTMLElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
+  const [openFor, setOpenFor] = useState<string | null>(null);
+  /*
+   * Quantos entraram nesta visita. O número de base vem do content.ts e é
+   * mantido à mão; isto só soma o que aconteceu na frente do visitante, para
+   * a contagem não ficar mentindo na tela logo depois de ele se inscrever.
+   */
+  const [joined, setJoined] = useState<Record<string, number>>({});
 
   useMotion(root, () => {
     const el = root.current;
@@ -18,6 +26,9 @@ export default function Products() {
 
     return () => revert?.();
   });
+
+  const count = (item: (typeof products.items)[number]) =>
+    item.waitlist.count + (joined[item.name] ?? 0);
 
   return (
     <section className="shell section" id="produtos" aria-labelledby="produtos-titulo" ref={root}>
@@ -50,17 +61,30 @@ export default function Products() {
                 {item.status}
               </p>
               <p className={styles.desc}>{item.desc}</p>
-              <a className={styles.link} href={item.cta.href}>
+              <button
+                className={styles.link}
+                type="button"
+                onClick={() => setOpenFor(item.name)}
+              >
                 <span>{item.cta.label}</span>
                 <span className="arrow" aria-hidden="true">
                   →
                 </span>
-              </a>
+              </button>
 
               <p className={styles.count}>
-                {item.waitlist.count}{" "}
-                {item.waitlist.count === 1 ? item.waitlist.singular : item.waitlist.plural}
+                {count(item)} {count(item) === 1 ? item.waitlist.singular : item.waitlist.plural}
               </p>
+
+              <WaitlistDialog
+                open={openFor === item.name}
+                copy={item.waitlist.form}
+                product={item.name}
+                onClose={() => setOpenFor(null)}
+                onJoined={() =>
+                  setJoined((prev) => ({ ...prev, [item.name]: (prev[item.name] ?? 0) + 1 }))
+                }
+              />
             </div>
           </article>
         ))}
