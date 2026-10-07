@@ -17,7 +17,7 @@ export default function About() {
     const revert = title.current ? revealHeadline(title.current, { delay: 0.1 }) : undefined;
     revealOnScroll(`.${styles.copy} p, .${styles.stat}`, el);
 
-    const layer = photo.current?.querySelector(".photo-layer");
+    const layer = photo.current?.querySelector(".photo-img");
     if (layer && photo.current) parallax(layer, photo.current, 10);
 
     return () => revert?.();
@@ -31,10 +31,14 @@ export default function About() {
       </div>
 
       <div className={styles.grid}>
-        {/* Substituir por foto P&B do time. */}
-        <div className={`photo ${styles.photo}`} aria-hidden="true" ref={photo}>
-          <span className="photo-layer" />
-          <span>FOTO DO TIME — P&amp;B</span>
+        <div className={`photo ${styles.photo}`} ref={photo}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="photo-img"
+            src="/time.jpg"
+            alt="As quatro pessoas do time da Pergamo, de camiseta preta, em frente a um prédio industrial tomado por trepadeira"
+            loading="lazy"
+          />
         </div>
 
         <div>
