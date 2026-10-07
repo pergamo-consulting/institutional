@@ -36,7 +36,7 @@ export default function Faq() {
     <section className="shell section" id="duvidas" aria-labelledby="duvidas-titulo" ref={root}>
       <div className="section-head">
         <p className="eyebrow">Dúvidas</p>
-        <span className="section-head-count">06 / 07</span>
+        <span className="section-head-count">07 / 08</span>
       </div>
 
       <h2 className={styles.title} id="duvidas-titulo" ref={title}>

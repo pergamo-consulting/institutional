@@ -1,0 +1,101 @@
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: end;
+  margin-block: 44px 46px;
+}
+.title {
+  max-width: 20ch;
+  font: 700 clamp(30px, 3.6vw, 46px) / 1.06 var(--sans);
+  letter-spacing: -0.03em;
+  text-wrap: pretty;
+}
+.lead {
+  max-width: 52ch;
+  font: 400 15.5px/1.6 var(--sans);
+  color: var(--text-muted);
+}
+
+.list {
+  border-top: 2px solid var(--line-strong);
+}
+/*
+ * Produto como linha editorial, não como cartão de preço: nome à esquerda,
+ * o que é e em que pé está à direita. Com dois produtos, a régua separa.
+ */
+.item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  padding-block: 38px 42px;
+}
+.item + .item {
+  border-top: 1px solid var(--line);
+}
+
+.name {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font: 700 clamp(38px, 5vw, 62px) / 0.98 var(--sans);
+  letter-spacing: -0.04em;
+}
+.byline {
+  font: 500 clamp(13px, 1.2vw, 15px) / 1 var(--sans);
+  letter-spacing: -0.01em;
+  color: var(--text-soft);
+}
+.kind {
+  margin-top: 14px;
+  font: 400 11px/1 var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font: 500 11px/1 var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+/* Ponto lime: o único sinal de cor da seção, e marca o que ainda não existe. */
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+.desc {
+  margin-bottom: 22px;
+  max-width: 44ch;
+  font: 400 15px/1.6 var(--sans);
+  color: var(--text-muted);
+}
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-strong);
+  font: 600 14px/1 var(--sans);
+  transition: gap var(--dur-base) var(--ease);
+}
+.link:hover {
+  gap: 18px;
+}
+
+@media (max-width: 940px) {
+  .head,
+  .item {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .head {
+    align-items: start;
+  }
+}

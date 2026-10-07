@@ -32,7 +32,7 @@ export default function Process() {
     >
       <div className="section-head">
         <p className="eyebrow">Como trabalhamos</p>
-        <span className="section-head-count">03 / 07</span>
+        <span className="section-head-count">03 / 08</span>
       </div>
 
       <h2 className={styles.title} id="processo-titulo" ref={title}>

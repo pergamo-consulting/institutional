@@ -6,6 +6,7 @@ import Contact from "@/components/sections/Contact";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import Process from "@/components/sections/Process";
+import Products from "@/components/sections/Products";
 import Services from "@/components/sections/Services";
 import Stats from "@/components/sections/Stats";
 import Testimonial from "@/components/sections/Testimonial";
@@ -24,12 +25,14 @@ export default function Home() {
         <Hero />
         <Stats />
 
-        {/* Faixa clara contínua: seções 01–04 dividem o mesmo fundo. */}
+        {/* Faixa clara contínua: seções 01–05 dividem o mesmo fundo. */}
         <div className="band-paper band-ruled">
           <WhereWeFit />
           <Services />
           <Process />
           <Cases />
+          {/* Produto depois da prova: primeiro o que já entregamos, aí o que vem. */}
+          <Products />
         </div>
 
         <Testimonial />

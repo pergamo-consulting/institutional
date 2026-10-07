@@ -5,6 +5,7 @@
 
 export const nav = [
   { href: '#servicos', label: 'Serviços' },
+  { href: '#produtos', label: 'Produtos' },
   { href: '#como-trabalhamos', label: 'Como trabalhamos' },
   { href: '#casos', label: 'Casos' },
   { href: '#sobre', label: 'Sobre' },
@@ -104,6 +105,26 @@ export const services = [
     tags: ['Time dedicado', 'Sustentação', 'SRE / observabilidade'],
   },
 ];
+
+/**
+ * Produto próprio, ainda sem data. Por isso a seção fala do que o Velo é e
+ * em que estágio está, e nada além: módulo, preço e data entram quando
+ * existirem de verdade. `items` é lista para caber o segundo produto.
+ */
+export const products = {
+  title: 'O que estamos construindo por conta própria.',
+  lead: 'Nem todo problema de operação se resolve com projeto sob medida. Parte do que aprendemos entrando em operação crítica está virando produto nosso.',
+  items: [
+    {
+      name: 'Velo',
+      byline: 'by Pergamo',
+      kind: 'ERP completo',
+      status: 'Em desenvolvimento',
+      desc: 'Um ERP completo, desenhado a partir do que vimos quebrar na operação de quem já roda sistema crítico. Ainda não está no ar.',
+      cta: { label: 'Avisar quando lançar', href: '#contato' },
+    },
+  ],
+};
 
 export const process = {
   title: 'Do primeiro café ao go-live, você sabe onde está.',
@@ -228,7 +249,7 @@ export const faq = {
 };
 
 export const contact = {
-  eyebrow: 'Contato · 07 / 07',
+  eyebrow: 'Contato · 08 / 08',
   title: 'Traga o problema.<br/>A primeira análise é por nossa conta.',
   lead: '45 minutos com um engenheiro e um consultor. Escopo, riscos e faixa de investimento por escrito, feche ou não. Se o certo for não contratar a gente, a gente diz.',
   email: 'contato@pergamo-consulting.com',
