@@ -135,3 +135,4 @@ O wireframe é estrutural, então isto ainda é marcador:
 `npm audit` aponta 3 vulnerabilidades altas em `postcss` e `sharp`, ambas
 transitivas do Next.js e usadas só em build — não vão para o navegador.
 `npm audit fix --force` alteraria a versão do Next; melhor esperar o upstream.
+adicionado foto dos fundadores
