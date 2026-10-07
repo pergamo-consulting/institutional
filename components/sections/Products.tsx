@@ -56,6 +56,11 @@ export default function Products() {
                   →
                 </span>
               </a>
+
+              <p className={styles.count}>
+                {item.waitlist.count}{" "}
+                {item.waitlist.count === 1 ? item.waitlist.singular : item.waitlist.plural}
+              </p>
             </div>
           </article>
         ))}

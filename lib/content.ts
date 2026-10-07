@@ -121,7 +121,21 @@ export const products = {
       kind: 'ERP completo',
       status: 'Em desenvolvimento',
       desc: 'Um ERP completo, desenhado a partir do que vimos quebrar na operação de quem já roda sistema crítico. Ainda não está no ar.',
-      cta: { label: 'Avisar quando lançar', href: '#contato' },
+      cta: { label: 'Entrar na lista de espera', href: '#contato' },
+      /*
+       * Contagem mantida à mão, de propósito: enquanto for uma linha por
+       * semana, não vale infra. A ordem importa — primeiro registra o cliente
+       * onde vocês controlam a lista, depois mexe aqui. O número no site é
+       * consequência do registro, nunca a fonte dele.
+       *
+       * Quando atualizar começar a doer, ou o número passar da dezena, a
+       * automação está desenhada no README, em "Lista de espera do Velo".
+       */
+      waitlist: {
+        count: 2,
+        singular: 'cliente já na lista',
+        plural: 'clientes já na lista',
+      },
     },
   ],
 };

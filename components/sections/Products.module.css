@@ -88,6 +88,12 @@
 .link:hover {
   gap: 18px;
 }
+/* Contagem como nota de pé, não como selo: número pequeno não grita. */
+.count {
+  margin-top: 14px;
+  font: 400 12.5px/1 var(--sans);
+  color: var(--text-soft);
+}
 
 @media (max-width: 940px) {
   .head,
