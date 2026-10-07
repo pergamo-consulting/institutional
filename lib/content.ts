@@ -5,6 +5,7 @@
 
 export const nav = [
   { href: '#servicos', label: 'Serviços' },
+  { href: '#produtos', label: 'Produtos' },
   { href: '#como-trabalhamos', label: 'Como trabalhamos' },
   { href: '#casos', label: 'Casos' },
   { href: '#sobre', label: 'Sobre' },
@@ -105,6 +106,48 @@ export const services = [
   },
 ];
 
+/**
+ * Produto próprio, ainda sem data. Por isso a seção fala do que o Velo é e
+ * em que estágio está, e nada além: módulo, preço e data entram quando
+ * existirem de verdade. `items` é lista para caber o segundo produto.
+ */
+export const products = {
+  title: 'O que estamos construindo por conta própria.',
+  lead: 'Nem todo problema de operação se resolve com projeto sob medida. Parte do que aprendemos entrando em operação crítica está virando produto nosso.',
+  items: [
+    {
+      name: 'Velo',
+      byline: 'by Pergamo',
+      kind: 'ERP completo',
+      status: 'Em desenvolvimento',
+      desc: 'Um ERP completo, desenhado a partir do que vimos quebrar na operação de quem já roda sistema crítico. Ainda não está no ar.',
+      cta: { label: 'Entrar na lista de espera', href: '#contato' },
+      /*
+       * Contagem mantida à mão, de propósito: enquanto for uma linha por
+       * semana, não vale infra. A ordem importa — primeiro registra o cliente
+       * onde vocês controlam a lista, depois mexe aqui. O número no site é
+       * consequência do registro, nunca a fonte dele.
+       *
+       * Quando atualizar começar a doer, ou o número passar da dezena, a
+       * automação está desenhada no README, em "Lista de espera do Velo".
+       */
+      waitlist: {
+        count: 2,
+        singular: 'cliente já na lista',
+        plural: 'clientes já na lista',
+        form: {
+          title: 'Lista de espera do Velo',
+          lead: 'Sem data de lançamento ainda. Quando tiver, você fica sabendo antes de ir para a rua.',
+          submit: 'Entrar na lista',
+          fineprint: 'Usamos só para falar do Velo. Sem newsletter, sem repasse para ninguém.',
+          contextLabel: 'O que você espera resolver com um ERP?',
+          done: 'Pronto, você está na lista. A gente avisa antes do lançamento.',
+        },
+      },
+    },
+  ],
+};
+
 export const process = {
   title: 'Do primeiro café ao go-live, você sabe onde está.',
   steps: [
@@ -166,9 +209,8 @@ export const testimonial = {
 export const about = {
   title: 'Somos quatro. Nenhum de nós é só de reunião.',
   paragraphs: [
-    'Quatro engenheiros, dezessete anos de estrada somados. Não existe camada de gerente entre você e quem escreve o código, e o time não muda depois da assinatura, mesmo quando isso custa margem.',
-    'O André veio da engenharia civil, e isso ficou no jeito da casa: a gente lê a operação antes de propor sistema, do mesmo jeito que se lê a obra antes do projeto. Falamos o problema, não o que dá venda.',
-    'Nosso critério de sucesso é ruim de vender: no fim do projeto, você decide melhor sozinho do que quando a gente chegou.',
+    'Quatro engenheiros, dezessete anos somados. O Vitor e o Bonato vêm da engenharia de software, o Gabriel da engenharia da computação e o André da civil. Não existe camada de gerente entre você e quem escreve o código, e o time não muda depois da assinatura, mesmo quando isso custa margem.',
+    'A mistura de formação ficou no jeito da casa: a gente lê a operação antes de propor sistema, do mesmo jeito que se lê a obra antes do projeto. E nosso critério de sucesso é ruim de vender: no fim do projeto, você decide melhor sozinho do que quando a gente chegou.',
   ],
   stats: [
     {
@@ -228,7 +270,7 @@ export const faq = {
 };
 
 export const contact = {
-  eyebrow: 'Contato · 07 / 07',
+  eyebrow: 'Contato · 08 / 08',
   title: 'Traga o problema.<br/>A primeira análise é por nossa conta.',
   lead: '45 minutos com um engenheiro e um consultor. Escopo, riscos e faixa de investimento por escrito, feche ou não. Se o certo for não contratar a gente, a gente diz.',
   email: 'contato@pergamo-consulting.com',

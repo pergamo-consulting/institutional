@@ -29,7 +29,7 @@ export default function Cases() {
         <h2 className="eyebrow" id="casos-titulo">
           Casos
         </h2>
-        <span className="section-head-count">04 / 07</span>
+        <span className="section-head-count">04 / 08</span>
       </div>
 
       <div className={styles.grid}>

@@ -1,0 +1,101 @@
+/*
+ * Diálogo nativo: o foco preso, o Esc e o backdrop vêm do <dialog>, não de
+ * JavaScript nosso. O ::backdrop é o que escurece a página atrás.
+ */
+.dialog {
+  width: min(460px, calc(100vw - 32px));
+  padding: 0;
+  border: 2px solid var(--ink);
+  background: var(--white);
+  color: var(--text);
+}
+.dialog::backdrop {
+  background: rgb(7 9 13 / 0.62);
+}
+
+.head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 26px 28px 0;
+}
+.title {
+  font: 700 clamp(20px, 2.2vw, 24px) / 1.15 var(--sans);
+  letter-spacing: -0.025em;
+}
+/* Fechar como alvo de 36px: dá para acertar no toque sem virar botão grande. */
+.close {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  margin: -6px -8px 0 0;
+  border: 0;
+  background: none;
+  font: 400 22px/1 var(--sans);
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: color var(--dur-quick) var(--ease);
+}
+.close:hover {
+  color: var(--text);
+}
+.lead {
+  padding: 10px 28px 0;
+  font: 400 13.5px/1.55 var(--sans);
+  color: var(--text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 28px 28px;
+}
+.field label {
+  display: block;
+  margin-bottom: 7px;
+  font: 500 11.5px/1.3 var(--sans);
+  color: var(--text-muted);
+}
+.field input,
+.field textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--field);
+  border: 1px solid var(--line-field);
+  border-radius: 0;
+  font: 400 14px/1.5 var(--sans);
+  color: var(--text);
+  transition:
+    border-color var(--dur-quick) var(--ease),
+    box-shadow var(--dur-quick) var(--ease);
+}
+.field input {
+  height: 44px;
+}
+.field textarea {
+  height: 72px;
+  resize: vertical;
+}
+.field input:hover,
+.field textarea:hover {
+  border-color: #a9a7a1;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgb(7 9 13 / 0.12);
+}
+.form :global(.btn) {
+  width: 100%;
+}
+.status {
+  font: 500 12.5px/1.5 var(--sans);
+}
+.fineprint {
+  font: 400 11.5px/1.5 var(--sans);
+  color: var(--text-soft);
+}

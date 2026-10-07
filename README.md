@@ -106,20 +106,44 @@ Layout conferido em 1280px e 390px contra o wireframe, e o estado pós-animaçã
 conferido contra o estado estático (mesma renderização, ao pixel). O conteúdo
 das seis seções está presente no HTML de `out/index.html`.
 
+## Lista de espera do Velo
+
+A contagem que aparece na seção de produtos é um campo em `lib/content.ts`
+(`products.items[].waitlist.count`), mantida à mão. Isso é decisão, não
+pendência: enquanto a atualização for uma linha de vez em quando, infra para
+isso custa mais do que resolve.
+
+**A regra que não se quebra:** primeiro o cliente entra na lista que vocês
+controlam (planilha, CRM, o que for), depois o número muda aqui. O número no
+site é consequência do registro, nunca a fonte dele — e nunca um número que
+não seja verdade. A página inteira foi reescrita para não ter dado inventado;
+um contador inflado destrói exatamente o que ela ganhou.
+
+**Quando automatizar:** quando atualizar passar a doer (mais de uma vez por
+semana) ou o número passar da dezena, que é quando ele começa a vender sozinho.
+Aí existem dois caminhos, nesta ordem de preferência:
+
+1. **Contador na origem.** O site é servido como assets do Cloudflare Workers
+   (`wrangler.jsonc`), então o mesmo deploy aceita uma rota de função sem
+   infra nova: `POST /api/lista-espera` grava o lead e incrementa um contador
+   em KV; `GET /api/lista-espera/contagem` devolve `{ count }`. A seção busca
+   isso no carregamento e mantém o valor do `content.ts` como fallback, para a
+   página nunca aparecer sem número se a rota falhar. Quem entra na lista
+   incrementa o número, e ninguém atualiza nada à mão.
+2. **Contagem no build.** Se não quiser JavaScript extra no cliente, um cron
+   diário no GitHub Actions lê o contador e refaz o build. O número fica até
+   24h atrasado, em troca de zero estado no navegador.
+
+Enquanto o número for baixo, vale lembrar que ele é prova social fraca: dois
+na lista convence menos que não mostrar contagem nenhuma. Se preferir esconder
+até um patamar, é um `if` na seção.
+
 ## Pendências antes de publicar
 
-O wireframe é estrutural, então isto ainda é marcador:
-
-- **Fotos** — os blocos hachurados. Trocar `<span class="photo-layer">` pela
-  `<img>` real: a camada já é o alvo do paralaxe e tem folga de 8% em cima e
-  embaixo para o deslocamento não descobrir borda.
-- **Logos de clientes** — os retângulos em `hero.trustMarks` (`lib/content.ts`).
-- **Métricas dos casos** — `−38%`, `9 → 1` e `11 dias → 4h` são exemplos;
-  trocar pelos números reais.
-- **Depoimento** — nome, cargo e empresa reais.
-- **Casos** — os links "Ver o caso" apontam para `#contato`; trocar quando
-  existirem as páginas internas.
-- **Dados de contato** — WhatsApp, CNPJ e endereço estão como `0000`.
+- **CNPJ** — o do rodapé é o da empresa particular do sócio, provisório até
+  sair o da Pergamo.
+- **Casos** — os links apontam para `#contato`; trocar quando existirem as
+  páginas internas de caso.
 - **Formulário** — sem endpoint, o envio abre o cliente de e-mail com a
   mensagem pronta. Para postar num handler real:
 

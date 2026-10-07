@@ -27,7 +27,7 @@ export default function About() {
     <section className="shell section" id="sobre" aria-labelledby="sobre-titulo" ref={root}>
       <div className="section-head">
         <p className="eyebrow">Quem somos</p>
-        <span className="section-head-count">05 / 07</span>
+        <span className="section-head-count">06 / 08</span>
       </div>
 
       <div className={styles.grid}>

@@ -32,7 +32,7 @@ export default function Services() {
         <h2 className="eyebrow" id="servicos-titulo">
           Serviços
         </h2>
-        <span className="section-head-count">02 / 07</span>
+        <span className="section-head-count">02 / 08</span>
       </div>
 
       {services.map((service) => (
